@@ -1,5 +1,5 @@
 /* eslint-disable react/no-children-prop */
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import {
   InputGroup,
   InputLeftElement,
@@ -11,11 +11,11 @@ import {
   Box,
   Flex,
   Text,
-} from '@chakra-ui/react'
-import MaskedInput from 'react-text-mask'
-import InputMask from 'react-input-mask'
-import { Icon } from '../Icon'
-import * as masks from 'utils/input-masks'
+} from "@chakra-ui/react";
+import MaskedInput from "react-text-mask";
+import InputMask from "react-input-mask";
+import { Icon } from "../Icon";
+import * as masks from "utils/input-masks";
 
 export const TextInput = ({
   error,
@@ -31,15 +31,15 @@ export const TextInput = ({
   padding,
   ...props
 }) => {
-  const theme = useTheme()
-  const [security, setSecurity] = useState(type === 'secureText')
+  const theme = useTheme();
+  const [security, setSecurity] = useState(type === "secureText");
 
   const DefaultInputProps = {
-    errorBorderColor: 'danger',
-    borderColor: 'border',
+    errorBorderColor: "danger",
+    borderColor: "gray",
     borderWidth: 1,
     borderRadius: 8,
-    backgroundColor: 'background',
+    backgroundColor: "white",
     _placeholder: {
       color: theme.colors.greyDark,
       fontSize: 14,
@@ -48,7 +48,7 @@ export const TextInput = ({
     maxLength: 150,
     minHeight: 42,
     color: theme.colors.secondary,
-  }
+  };
 
   return (
     <Box w="100%" {...props?.containerProps}>
@@ -74,33 +74,33 @@ export const TextInput = ({
 
         <Input
           type={
-            type === 'secureText' ? (security ? 'password' : 'string') : type
+            type === "secureText" ? (security ? "password" : "string") : type
           }
-          as={type === 'inputMask' ? InputMask : mask ? MaskedInput : Input}
+          as={type === "inputMask" ? InputMask : mask ? MaskedInput : Input}
           mask={masks[mask] ? masks[mask] : mask}
           {...DefaultInputProps}
           {...props}
           isInvalid={!!error}
           py="24px"
           paddingLeft={
-            padding ? padding : leftElement && !leftAddon ? '48px' : '16px'
+            padding ? padding : leftElement && !leftAddon ? "48px" : "16px"
           }
           paddingRight={
-            padding ? padding : rightElement && !rightAddon ? '48px' : '16px'
+            padding ? padding : rightElement && !rightAddon ? "48px" : "16px"
           }
-          fontSize={`${fontSize}px` || '14px'}
+          fontSize={`${fontSize}px` || "14px"}
           _placeholder={{
-            fontFamily: 'Montserrat Medium',
-            color: 'textGrey',
+            fontFamily: "Montserrat Medium",
+            color: "textGrey",
           }}
           placeholder={props?.placeholder}
         />
 
-        {type === 'secureText' && (
+        {type === "secureText" && (
           <InputRightElement height="100%" pointerEvents="all">
             <Flex onClick={() => setSecurity(!security)}>
               <Icon
-                name={security ? 'EyeClosed' : 'EyeOpen'}
+                name={security ? "EyeClosed" : "EyeOpen"}
                 color="textDark"
                 cursor="pointer"
               />
@@ -121,11 +121,11 @@ export const TextInput = ({
           ))}
       </InputGroup>
 
-      {error && typeof error === 'string' && (
+      {error && typeof error === "string" && (
         <Text fontSize="12px" color="red">
           {error}
         </Text>
       )}
     </Box>
-  )
-}
+  );
+};

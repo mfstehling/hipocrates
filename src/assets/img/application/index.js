@@ -21,3 +21,5 @@ export { default as yasmim } from "./yasmim.png";
 export { default as guilherme } from "./guilherme.png";
 export { default as joao_gabriel } from "./joao_gabriel.png";
 export { default as renato } from "./renato.png";
+export { default as logo } from "./logo.png";
+export { default as medic } from "./medic.png";
